@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Vishal Bharti - Portfolio</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500&display=swap" rel="stylesheet">
+  <!-- Font Awesome for social icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <style>
+    :root {
+      --primary-color: #1A0DAB;
+      --bg-color: #fff;
+      --text-color: #333;
+      --accent-color: #f5f5f5;
+    }
+    /* Reset & Base */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Montserrat', sans-serif;
+      line-height: 1.6;
+      color: var(--text-color);
+      background: var(--bg-color);
+    }
+    /* Fixed Navigation */
+    nav.fixed {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(245, 245, 245, 0.95);
+      padding: 10px 20px;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    nav.fixed .nav-links {
+      display: flex;
+      gap: 20px;
+    }
+    nav.fixed a {
+      text-decoration: none;
+      color: var(--text-color);
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+    nav.fixed a:hover {
+      color: var(--primary-color);
+    }
+    /* Header / Hero Section */
+    header {
+      background: linear-gradient(135deg, #f5f5f5, #e0e0e0);
+      padding: 100px 20px 60px;
+      text-align: center;
+      position: relative;
+      margin-top: 60px; /* space for fixed nav */
+    }
+    header h1 {
+      font-size: 48px;
+      margin-bottom: 10px;
+      letter-spacing: 2px;
+    }
+    header p {
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+    header nav.social {
+      margin-top: 20px;
+    }
+    header nav.social a {
+      font-size: 24px;
+      margin: 0 10px;
+      color: var(--text-color);
+      transition: transform 0.3s ease, color 0.3s ease;
+    }
+    header nav.social a:hover {
+      transform: scale(1.1);
+      color: var(--primary-color);
+    }
+    /* Sections */
+    section {
+      padding: 60px 20px;
+      max-width: 1000px;
+      margin: 0 auto;
+      animation: fadeIn 1s ease-out;
+    }
+    section h2 {
+      font-size: 32px;
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid #ddd;
+      text-align: center;
+    }
+    /* About Section */
+    #about p {
+      font-size: 18px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    /* Projects Section */
+    .project {
+      margin-bottom: 40px;
+      padding: 20px;
+      background: #f9f9f9;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+      transition: transform 0.3s ease;
+    }
+    .project:hover {
+      transform: translateY(-5px);
+    }
+    .project h3 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+    .project p {
+      font-size: 16px;
+      line-height: 1.5;
+    }
+    /* Resume Section */
+    #resume {
+      text-align: center;
+    }
+    #resume p {
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+    #resume a.button {
+      display: inline-block;
+      padding: 12px 24px;
+      background: var(--primary-color);
+      color: #fff;
+      border-radius: 4px;
+      text-decoration: none;
+      transition: background 0.3s ease;
+    }
+    #resume a.button:hover {
+      background: #0d0788;
+    }
+    /* Contact Section */
+    #contact p {
+      font-size: 18px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    /* Footer */
+    footer {
+      background: var(--accent-color);
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+    }
+    a {
+      color: var(--primary-color);
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    /* Back to Top Button */
+    #back-to-top {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: var(--primary-color);
+      color: #fff;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 18px;
+      display: none;
+      z-index: 1001;
+      transition: background 0.3s ease;
+    }
+    #back-to-top:hover {
+      background: #0d0788;
+    }
+    /* FadeIn Animation */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    /* Responsive */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 36px;
+      }
+      section h2 {
+        font-size: 28px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Fixed Navigation -->
+  <nav class="fixed">
+    <div class="nav-logo">
+      <a href="#about" style="font-size: 20px; font-weight: bold;">Vishal Bharti</a>
+    </div>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#resume">Resume</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <header>
+    <h1>Vishal Bharti</h1>
+    <p>
+      <a href="mailto:vishal20264@iiitd.ac.in">vishal20264@iiitd.ac.in</a> | +91 8933874972
+    </p>
+    <nav class="social">
+      <a href="https://www.linkedin.com/in/vishal20264/" target="_blank" aria-label="LinkedIn">
+        <i class="fab fa-linkedin"></i>
+      </a>
+      <a href="https://www.instagram.com/_.vishalbharti._" target="_blank" aria-label="Instagram">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="https://github.com/vishal-20264" target="_blank" aria-label="GitHub">
+        <i class="fab fa-github"></i>
+      </a>
+    </nav>
+  </header>
+  
+  <section id="about">
+    <h2>About Me</h2>
+    <p>
+      I'm a creative researcher and developer passionate about transforming everyday interactions into engaging digital experiences. My work explores tangible interactions, immersive media, and innovative user interfaces to bridge the gap between technology and human experience.
+    </p>
+    <p>
+      With a background in Electronics & Communication Engineering from IIIT-Delhi, I combine art and technology to create projects that inspire, inform, and innovate.
+    </p>
+  </section>
+  
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="project">
+      <h3>Simple Assembler and Simulator</h3>
+      <p>
+        Developed an assembler and simulator for a custom instruction set architecture, enabling machine-level execution of assembly code with precise opcode translation and memory management.
+      </p>
+    </div>
+    <div class="project">
+      <h3>Prototype of a Societal Impact App</h3>
+      <p>
+        Designed and prototyped a mobile application addressing real-world societal challenges. This project involved extensive user research, wireframing, and interactive design using Figma.
+      </p>
+    </div>
+    <div class="project">
+      <h3>Tangible Interactions with Curtain</h3>
+      <p>
+        Engineered an interface that transforms traditional curtains into interactive digital surfaces through sensor-based inputs and dynamic UI feedback. <strong>Published</strong> (<a href="https://doi.org/10.1145/3681756.3697935" target="_blank">DOI: 10.1145/3681756.3697935</a>).
+      </p>
+    </div>
+    <div class="project">
+      <h3>VoxCraft</h3>
+      <p>
+        Developed voxel-based interactive environments enabling real-time 3D design and manipulation. <em>Work in progress.</em>
+      </p>
+    </div>
+  </section>
+  
+  <section id="resume">
+    <h2>Resume</h2>
+    <p>
+      View my detailed resume for more information about my professional experience and projects.
+    </p>
+    <a class="button" href="C:\Users\visha\OneDrive\Desktop\resume\PORTFOLIO\vishalresume.pdf" target="_blank">Download Resume</a>
+  </section>
+  
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>
+      I'd love to hear from you! Drop me an email at <a href="mailto:vishal20264@iiitd.ac.in">vishal20264@iiitd.ac.in</a>
+    </p>
+  </section>
+  
+  <footer>
+    &copy; 2025 Vishal Bharti
+  </footer>
+  
+  <button id="back-to-top" aria-label="Back to Top"><i class="fas fa-chevron-up"></i></button>
+  
+  <script>
+    // Back to top button functionality
+    const backToTopButton = document.getElementById('back-to-top');
+    window.addEventListener('scroll', () => {
+      backToTopButton.style.display = window.pageYOffset > 300 ? 'block' : 'none';
+    });
+    backToTopButton.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+    
+    // Animate progress bars on load (if any exist)
+    window.addEventListener('load', () => {
+      const progresses = document.querySelectorAll('.progress');
+      progresses.forEach(progress => {
+        const width = progress.style.width;
+        progress.style.width = '0';
+        setTimeout(() => {
+          progress.style.width = width;
+        }, 500);
+      });
+    });
+  </script>
+</body>
+</html>
